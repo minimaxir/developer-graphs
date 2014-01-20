@@ -8,10 +8,13 @@ themecolor <- "#FAFAFA"
 themebg <- "#333333"
 
 theme_chalk <- function() {theme_bw(base_size = 6) +
-                                       theme(text = element_text(color = themecolor, family=font),
-                                             axis.ticks = element_line(color = themecolor),
-                                             panel.border = element_rect(color = themecolor), plot.margin = unit(c(0.1,0.1,0.1,0.1), "cm"), panel.background=element_rect(fill = themebg), plot.background=element_rect(fill = themebg), panel.grid=element_blank())
-                                     
+theme(text = element_text(color = themecolor, family=font),
+axis.ticks = element_line(color = themecolor),
+panel.border = element_rect(color = themecolor),
+plot.margin = unit(c(0.1,0.1,0.1,0.1), "cm"),
+panel.background=element_rect(fill = themebg),
+plot.background=element_rect(fill = themebg),
+panel.grid=element_blank())                                     
 }
 
 df <- data.frame(lang=c("Java","PHP","C#","Android","JavaScript","Rails","Python","iOS",".net","C++"),perc=c(0.2226,0.1153,0.1074,0.0994,0.0923,0.0830,0.0829,0.0753,0.0722,0.0496))
