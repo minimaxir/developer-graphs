@@ -4,6 +4,7 @@ library("scales")
 library("grid")
 
 font <- "Chalkduster"	# font: change if not on Mac
+font_axis <- "Avenir Next Condensed Medium"
 themecolor <- "#FAFAFA"
 themebg <- "#333333"
 
@@ -27,8 +28,9 @@ ggplot(df, aes(lang,perc)) +
 geom_bar(fill=themebg, color=themecolor, width=0.75) +	# draw columns
 scale_y_continuous(labels = percent) +	# percent scale
 theme_chalk() +	# render theme
-theme(axis.title.x = element_blank(), axis.title.y =  element_blank() ,axis.ticks.x = element_blank(),axis.text.x= element_blank()) +	# tweak theme
-geom_text(label=df$lang, vjust=-1.0, color=themecolor, family=font, size=1.5)	# add annotations
+theme(axis.title.x = element_text(family=font_axis), axis.title.y =  element_blank() ,axis.ticks.x = element_blank(),axis.text.x= element_blank()) +	# tweak theme
+geom_text(label=df$lang, vjust=-1.0, color=themecolor, family=font, size=1.5) + # add annotations
+xlab(toupper("Percent Among Top 10 Searches"))
 
 ggsave("dev-graph-1.png",height=3,width=4)	# produces 1200x900px image
 
@@ -39,8 +41,9 @@ geom_bar(fill=themebg, color=themecolor, width=0.75) +
 scale_y_continuous(labels = percent) +
 coord_flip() +	# convert columns to bars
 theme_chalk() +
-theme(axis.title.x = element_blank(), axis.title.y = element_blank(), axis.ticks.y = element_blank(),axis.text.y= element_blank()) +
-geom_text(label=df$lang, hjust=-0.25, color=themecolor, family=font, size=1.5)
+theme(axis.title.x = element_text(family=font_axis), axis.title.y = element_blank(), axis.ticks.y = element_blank(),axis.text.y= element_blank()) +
+geom_text(label=df$lang, hjust=-0.25, color=themecolor, family=font, size=1.5) +
+ylab(toupper("Percent Among Top 10 Searches"))
 
 ggsave("dev-graph-2.png",height=3,width=4)
 
